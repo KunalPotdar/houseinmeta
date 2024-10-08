@@ -28,7 +28,7 @@
 
         const loader = new GLTFLoader();
         loader.load(
-            'commercialDesign.glb',  // Replace with your S3 URL
+            './commercialDesign.glb',  // Replace with your S3 URL
             (gltf) => {
                 scene.add(gltf.scene);
                 renderer.render(scene, camera);
