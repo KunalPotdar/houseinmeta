@@ -28,7 +28,7 @@
 
         const loader = new GLTFLoader();
         loader.load(
-            'https://github.com/KunalPotdar/houseinmeta/blob/683a26da89de4cfadcbe69b9357c1d44362558f5/commercialDesign.glb',  // Replace with your S3 URL
+            'commercialDesign.glb',  // Replace with your S3 URL
             (gltf) => {
                 scene.add(gltf.scene);
                 renderer.render(scene, camera);
