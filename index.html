@@ -41,8 +41,8 @@
           5000                        // far
         );
 
-        camera.position.set(0, 100, 1000); // Higher and farther back
-        camera.lookAt(0, 0, 0);
+        camera.position.set(0, 100, 100); // Higher and farther back
+        camera.lookAt(0, 100, 100);
 
         const renderer = new THREE.WebGLRenderer();
         const controls = new OrbitControls(camera, renderer.domElement);
