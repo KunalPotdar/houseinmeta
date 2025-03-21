@@ -27,7 +27,20 @@
 
 
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        const aspect = window.innerWidth / window.innerHeight;
+        const frustumSize = 100;
+        
+        // Create an orthographic camera
+        const camera = new THREE.OrthographicCamera(
+          -frustumSize * aspect / 2,  // left
+          frustumSize * aspect / 2,   // right
+          frustumSize / 2,            // top
+          -frustumSize / 2,           // bottom
+          0.1,                        // near
+          3000                        // far
+        );
+        
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
