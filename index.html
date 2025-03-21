@@ -44,6 +44,7 @@
         camera.position.set(10, 50, 30); // Higher and farther back
         camera.lookAt(0, 0, 0);
 
+        const renderer = new THREE.WebGLRenderer();
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.enablePan = true;
@@ -54,8 +55,7 @@
         controls.autoRotate = false;
         controls.target = new THREE.Vector3(0, 1, 0);
         controls.update();
-
-        const renderer = new THREE.WebGLRenderer();
+        
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
