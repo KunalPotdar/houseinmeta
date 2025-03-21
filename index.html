@@ -36,7 +36,7 @@
         scene.add(light);
 
         const loader = new GLTFLoader();
-        loader.load( modelUrl, function (gltf) {
+        loader.load( './src/EEB_115.glb', function (gltf) {
             scene.add(gltf.scene);
         }, undefined, function (error) {
             console.error('Error loading model:', error);
