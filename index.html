@@ -33,7 +33,7 @@
         scene.add(light);
 
         const loader = new GLTFLoader();
-        loader.load('https://github.com/KunalPotdar/houseinmeta/blob/main/EEB.glb', function (gltf) {
+        loader.load('./EEB.glb', function (gltf) {
             scene.add(gltf.scene);
         }, undefined, function (error) {
             console.error('Error loading model:', error);
