@@ -3,42 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model Viewer</title>
-    
+    <title>GLTF Model Viewer</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
+                "GLTFLoader": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/loaders/GLTFLoader.js"
+            }
+        }
+    </script>
     <style>
         body { margin: 0; }
         canvas { display: block; }
     </style>
 </head>
 <body>
-    <script src="src/three.module.min.js"></script>
-    <script src="src/GLTFLoader.js"></script>
-    <script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'GLTFLoader';
+
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(10, 10, 10);
+        const light = new THREE.HemisphereLight(0xffffff, 0x444444);
         scene.add(light);
 
         const loader = new GLTFLoader();
-        loader.load(
-            './EEB.glb',  // Replace with your S3 URL
-            (gltf) => {
-                scene.add(gltf.scene);
-                renderer.render(scene, camera);
-            },
-            undefined,
-            (error) => {
-                console.error('An error happened', error);
-            }
-        );
+        loader.load('https://github.com/KunalPotdar/houseinmeta/blob/main/EEB.glb', function (gltf) {
+            scene.add(gltf.scene);
+        }, undefined, function (error) {
+            console.error('Error loading model:', error);
+        });
 
-        camera.position.z = 5;
-
+        camera.position.z = 3;
+        
         function animate() {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
