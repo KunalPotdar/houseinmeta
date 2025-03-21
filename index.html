@@ -65,6 +65,9 @@
         const loader = new GLTFLoader();
         loader.load( './src/EEB_115.glb', function (gltf) {
             scene.add(gltf.scene);
+            const model = gltf.scene;
+              model.position.set(0, -10, 10);
+
         }, undefined, function (error) {
             console.error('Error loading model:', error);
         });
