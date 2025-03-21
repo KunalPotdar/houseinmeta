@@ -29,7 +29,7 @@
         const scene = new THREE.Scene();
         
         const aspect = window.innerWidth / window.innerHeight;
-        const frustumSize = 300;
+        const frustumSize = 100;
         
         // Create an orthographic camera
         const camera = new THREE.OrthographicCamera(
@@ -38,7 +38,7 @@
           frustumSize / 2,            // top
           -frustumSize / 2,           // bottom
           0.1,                        // near
-          3000                        // far
+          5000                        // far
         );
 
         camera.position.set(100, 100, 100); // Higher and farther back
