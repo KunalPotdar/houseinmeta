@@ -45,6 +45,8 @@
         camera.lookAt(0, 0, 0);
 
         const renderer = new THREE.WebGLRenderer();
+
+        // Controls 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.enablePan = true;
@@ -61,9 +63,19 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
+        // Lights 
         const light = new THREE.HemisphereLight(0xffffff, 0x444444);
         scene.add(light);
 
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1); // Strong white light
+        dirLight.position.set(100, 200, 100); // Position in 3D space
+        dirLight.castShadow = true;           // Enable shadows
+        dirLight.shadow.mapSize.width = 1024; // Shadow quality
+        dirLight.shadow.mapSize.height = 1024;
+        dirLight.shadow.camera.near = 0.5;
+        dirLight.shadow.camera.far = 500;
+        scene.add(dirLight);
+        
         const loader = new GLTFLoader();
         loader.load( './src/EEB_115.glb', function (gltf) {
             scene.add(gltf.scene);
