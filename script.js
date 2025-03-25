@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 // Get model from URL (either ?model= or #)
 function getModelFromURL() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('model') || window.location.hash.replace('#', '') || 'building1';
+    return params.get('model') || window.location.hash.replace('#', '') || 'project1';
 }
 
 // Scene, Camera, Renderer setup
@@ -69,7 +69,7 @@ const modelName = getModelFromURL();  // Get model name from URL
 document.getElementById("model-name").textContent = `Loading: ${modelName}`;
 
 // Dynamic path based on URL
-const modelPath = `./models/${modelName}/model.glb`;
+const modelPath = `./client/${modelName}/model.glb`;
 
 loader.load(
     modelPath,
