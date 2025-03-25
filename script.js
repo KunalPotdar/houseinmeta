@@ -19,8 +19,8 @@ const camera = new THREE.OrthographicCamera(
   frustumSize * aspect,   // right
   frustumSize ,            // top
   -frustumSize ,           // bottom
-  0.1,                        // near
-  100                        // far
+  1,                        // near
+  1000                        // far
 );
 
 camera.position.set(0, 20, -10); // Higher and farther back
@@ -38,7 +38,7 @@ controls.enablePan = true;
 controls.minDistance = 5;
 controls.maxDistance = 20;
 controls.minZoom = 0.5;   // Minimum zoom (farthest view)
-controls.maxZoom = 3.0;
+controls.maxZoom = 2.0;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 0.9;
 controls.autoRotate = false;
