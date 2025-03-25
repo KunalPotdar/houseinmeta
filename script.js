@@ -23,7 +23,7 @@ const camera = new THREE.OrthographicCamera(
   3000                        // far
 );
 
-camera.position.set(0, 30, -10); // Higher and farther back
+camera.position.set(0, 20, -10); // Higher and farther back
 camera.lookAt(0, 0, 0);
 
 
@@ -42,7 +42,7 @@ controls.maxZoom = 3.0;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 0.9;
 controls.autoRotate = false;
-controls.target = new THREE.Vector3(0, 1, 0);
+controls.target = new THREE.Vector3(0, 0, 0);
 controls.update();
 camera.updateProjectionMatrix();  
 renderer.setSize(window.innerWidth, window.innerHeight);
