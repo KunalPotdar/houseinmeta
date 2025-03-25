@@ -12,7 +12,7 @@ function getModelFromURL() {
 const scene = new THREE.Scene();
  scene.background = new THREE.Color(0xffffff); 
 const aspect = window.innerWidth / window.innerHeight;
-const frustumSize = 50;
+const frustumSize = 100;
 // Create an orthographic camera
 const camera = new THREE.OrthographicCamera(
   -frustumSize * aspect ,  // left
