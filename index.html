@@ -80,7 +80,7 @@
         loader.load( './src/building-04.glb', function (gltf) {
             scene.add(gltf.scene);
             const model = gltf.scene;
-              model.position.set(0, -20, 0);
+              model.position.set(0, 20, 0);
 
         }, undefined, function (error) {
             console.error('Error loading model:', error);
