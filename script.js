@@ -42,7 +42,7 @@ controls.maxZoom = 2.0;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 0.9;
 controls.autoRotate = false;
-controls.target = new THREE.Vector3(0, 0, 0);
+controls.target = new THREE.Vector3(1, 1, 1);
 controls.update();
 camera.updateProjectionMatrix();  
 renderer.setSize(window.innerWidth, window.innerHeight);
