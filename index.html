@@ -1,99 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLTF Model Viewer</title>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
-                "three/addons/": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/"
-            }
-        }
-    </script>
+    <title>Three.js Dynamic Loader</title>
     <style>
-        body { margin: 0; }
+        body { margin: 0; overflow: hidden; }
         canvas { display: block; }
     </style>
 </head>
 <body>
-    <script type="module">
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const modelUrl = 'https://github.com/KunalPotdar/houseinmeta/blob/main/src/building-04.glb';
-        
-        import * as THREE from 'three';
-        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xffffff); 
-        const aspect = window.innerWidth / window.innerHeight;
-        const frustumSize = 50;
-        
-        // Create an orthographic camera
-        const camera = new THREE.OrthographicCamera(
-          -frustumSize * aspect ,  // left
-          frustumSize * aspect,   // right
-          frustumSize ,            // top
-          -frustumSize ,           // bottom
-          0.1,                        // near
-          3000                        // far
-        );
-
-        camera.position.set(0, 30, -10); // Higher and farther back
-        camera.lookAt(0, 0, 0);
-
-        const renderer = new THREE.WebGLRenderer();
-
-        // Controls 
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.enablePan = true;
-        controls.minDistance = 5;
-        controls.maxDistance = 20;
-        controls.minZoom = 0.5;   // Minimum zoom (farthest view)
-        controls.maxZoom = 3.0;
-        controls.minPolarAngle = 1;
-        controls.maxPolarAngle = 0.9;
-        controls.autoRotate = false;
-        controls.target = new THREE.Vector3(0, 1, 0);
-        controls.update();
-        camera.updateProjectionMatrix();  
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // Lights 
-        const light = new THREE.HemisphereLight(0xffffff, 0x444444);
-        scene.add(light);
-
-        const dirLight = new THREE.DirectionalLight(0xffffff, 1); // Strong white light
-        dirLight.position.set(100, 200, 100); // Position in 3D space
-        dirLight.castShadow = true;           // Enable shadows
-        dirLight.shadow.mapSize.width = 1024; // Shadow quality
-        dirLight.shadow.mapSize.height = 1024;
-        dirLight.shadow.camera.near = 0.5;
-        dirLight.shadow.camera.far = 500;
-        scene.add(dirLight);
-        
-        const loader = new GLTFLoader();
-        loader.load( './src/building-04.glb', function (gltf) {
-            scene.add(gltf.scene);
-            const model = gltf.scene;
-              model.position.set(0, 0, 0);
-
-        }, undefined, function (error) {
-            console.error('Error loading model:', error);
-        });
-
-        
-        
-        function animate() {
-            requestAnimationFrame(animate);
-            controls.update();
-            renderer.render(scene, camera);
-        }
-        animate();
-    </script>
+    <h2 id="model-name" style="position: absolute; color: white; padding: 10px;"></h2>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
