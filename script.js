@@ -23,7 +23,7 @@ const camera = new THREE.OrthographicCamera(
   1000                        // far
 );
 
-camera.position.set(0, 20, 10); // Higher and farther back
+camera.position.set(0,10,20); // Higher and farther back
 camera.lookAt(0, 0, 0);
 
 
