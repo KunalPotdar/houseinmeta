@@ -20,7 +20,7 @@ const camera = new THREE.OrthographicCamera(
   frustumSize ,            // top
   -frustumSize ,           // bottom
   1,                        // near
-  1000                        // far
+  100                        // far
 );
 
 camera.position.set(0,10,0); // Higher and farther back
