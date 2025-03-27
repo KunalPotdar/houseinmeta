@@ -23,7 +23,7 @@ const camera = new THREE.OrthographicCamera(
   1000                        // far
 );
 
-camera.position.set(0,10,20); // Higher and farther back
+camera.position.set(0,10,0); // Higher and farther back
 camera.lookAt(0, 0, 0);
 
 
@@ -38,7 +38,7 @@ controls.enablePan = true;
 controls.minDistance = 5;
 controls.maxDistance = 20;
 controls.minZoom = 0.5;   // Minimum zoom (farthest view)
-controls.maxZoom = 2.0;
+controls.maxZoom = 3.0;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 0.9;
 controls.autoRotate = false;
