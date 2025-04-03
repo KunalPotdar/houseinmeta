@@ -105,9 +105,14 @@ function animate() {
 
 // Highlight the selected floor when hovering over a button
 function highlightFloor(floorNumber) {
-    Object.values(floors).forEach((floor) => floor.box.material.color.set(0x00ff00)); // Reset all to green
-    if (floors[floorNumber]) {
-        floors[floorNumber].box.material.color.set(0xff0000); // Change to red
+	if (Object.keys(floorBoxes).length === 0) {
+        console.warn("Model not loaded yet!");
+        return;
+    }
+	
+   Object.values(floorBoxes).forEach((box) => box.material.color.set(0x00ff00)); // Reset all to green
+    if (floorBoxes[floorNumber]) {
+        floorBoxes[floorNumber].material.color.set(0xff0000); // Change to red
     }
 }
 
@@ -115,6 +120,10 @@ function highlightFloor(floorNumber) {
 function resetHighlight() {
     Object.values(floors).forEach((floor) => floor.box.material.color.set(0x00ff00)); // Reset all to green
 }
+
+window.highlightFloor = highlightFloor;
+window.resetHighlight = resetHighlight;
+
 // Responsive Canvas
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
