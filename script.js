@@ -66,7 +66,7 @@ scene.add(dirLight);
 // Load Model
 const loader = new GLTFLoader();
 const modelName = getModelFromURL();  // Get model name from URL
-document.getElementById("model-name").textContent = `Loading: ${modelName}`;
+//document.getElementById("model-name").textContent = `Loading: ${modelName}`;
 
 // Dynamic path based on URL
 const modelPath = `./client/${modelName}/model.glb`;
