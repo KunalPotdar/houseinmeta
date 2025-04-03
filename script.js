@@ -82,6 +82,7 @@ loader.load(
         gltf.scene.traverse((child) => {
 	    if (child.isMesh && child.name.includes("Box_Floor")) {
 		let floorNumber = child.name.replace("Box_Floor", ""); // Extract floor number
+		    console.log("Box_Floor found");
 		floorBoxes[floorNumber] = child;
 		child.material = new THREE.MeshBasicMaterial({
 		    color: 0x00ff00, 
