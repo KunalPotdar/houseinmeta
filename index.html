@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House-In-Meta</title>
+    <link rel="stylesheet" href="styles.css">
     <script type="importmap">
         {
             "imports": {
@@ -18,6 +19,11 @@
     </style>
 </head>
 <body>
+    <div id="floorPanel" class="panel">
+    <button class="floorBtn" onmouseover="highlightFloor(1)" onmouseout="resetHighlight()">Floor 1</button>
+    <button class="floorBtn" onmouseover="highlightFloor(2)" onmouseout="resetHighlight()">Floor 2</button>
+    <button class="floorBtn" onmouseover="highlightFloor(3)" onmouseout="resetHighlight()">Floor 3</button>
+    </div>
     <h2 id="model-name" style="position: absolute; color: white; padding: 10px;"></h2>
     <script type="module" src="script.js"></script>
 </body>
