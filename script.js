@@ -8,6 +8,8 @@ function getModelFromURL() {
     return params.get('model') || window.location.hash.replace('#', '') || 'project1';
 }
 
+let floorBoxes = {}; // Store references to each box
+
 // Scene, Camera, Renderer setup
 const scene = new THREE.Scene();
  scene.background = new THREE.Color(0xffffff); 
