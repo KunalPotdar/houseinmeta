@@ -27,7 +27,7 @@ camera.position.set(-10,0,-20); // Higher and farther back
 camera.lookAt(0, 0, 0);
 
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("threejsCanvas") });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -77,6 +77,17 @@ loader.load(
         const model = gltf.scene;
         model.position.set(0, 0, 0);
         scene.add(model);
+        gltf.scene.traverse((child) => {
+	    if (child.isMesh && child.name.includes("Box_Floor")) {
+		let floorNumber = child.name.replace("Box_Floor", ""); // Extract floor number
+		floorBoxes[floorNumber] = child;
+		child.material = new THREE.MeshBasicMaterial({
+		    color: 0x00ff00, 
+		    transparent: true,
+		    opacity: 0.3 // Default semi-transparent
+		});
+	    }});
+	    
         animate();
     },
     (error) => console.error('Error loading model:', error)
@@ -89,6 +100,18 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+// Highlight the selected floor when hovering over a button
+function highlightFloor(floorNumber) {
+    Object.values(floors).forEach((floor) => floor.box.material.color.set(0x00ff00)); // Reset all to green
+    if (floors[floorNumber]) {
+        floors[floorNumber].box.material.color.set(0xff0000); // Change to red
+    }
+}
+
+// Reset highlight when mouse leaves
+function resetHighlight() {
+    Object.values(floors).forEach((floor) => floor.box.material.color.set(0x00ff00)); // Reset all to green
+}
 // Responsive Canvas
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
