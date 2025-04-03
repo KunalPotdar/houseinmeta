@@ -79,7 +79,6 @@ loader.load(
         scene.add(model);
         animate();
     },
-    (xhr) => console.log(`Loading: ${(xhr.loaded / xhr.total) * 100}% complete`),
     (error) => console.error('Error loading model:', error)
 );
 
