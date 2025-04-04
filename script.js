@@ -133,26 +133,24 @@ function resetHighlight() {
     });
 }
 
-function showFloorOptions(floorNumber) {
-    highlightFloor(floorNumber); // Highlight the floor box
+window.showFloorOptions = function(floorNumber) {
+  highlightFloor(floorNumber);
+  const panel = document.getElementById("floorOptionsPanel");
+  const label = document.getElementById("floorLabel");
 
-    const panel = document.getElementById("floorOptionsPanel");
-    const label = document.getElementById("floorLabel");
+  label.textContent = `Options for Floor ${floorNumber}`;
+  panel.style.display = "block";
+};
 
-    label.textContent = `Options for Floor ${floorNumber}`;
-    panel.style.display = "block";
-}
+window.hideFloorOptions = function () {
+  document.getElementById("floorOptionsPanel").style.display = "none";
+  resetHighlight();
+};
 
-function hideFloorOptions() {
-    const panel = document.getElementById("floorOptionsPanel");
-    panel.style.display = "none";
-    resetHighlight(); // Un-highlight boxes
-}
 
 window.highlightFloor = highlightFloor;
 window.resetHighlight = resetHighlight;
-window.showFloorOptions = showFloorOptions;
-window.hideFloorOptions = hideFloorOptions;
+
 
 // Responsive Canvas
 window.addEventListener('resize', () => {
