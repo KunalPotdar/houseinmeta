@@ -20,10 +20,18 @@
 </head>
 <body>
     <div id="floorPanel" class="panel">
-    <button class="floorBtn" onmouseover="highlightFloor(1)" onmouseout="resetHighlight()">Floor 1</button>
-    <button class="floorBtn" onmouseover="highlightFloor(2)" onmouseout="resetHighlight()">Floor 2</button>
-    <button class="floorBtn" onmouseover="highlightFloor(3)" onmouseout="resetHighlight()">Floor 3</button>
-    <button class="floorBtn" onmouseover="highlightFloor(4)" onmouseout="resetHighlight()">Floor 4</button>
+    <button class="floorBtn" onclick="showFloorOptions(1)" onmouseover="highlightFloor(1)" onmouseout="resetHighlight()">Floor 1</button>
+    <button class="floorBtn" onclick="showFloorOptions(2)" onmouseover="highlightFloor(2)" onmouseout="resetHighlight()">Floor 2</button>
+    <button class="floorBtn" onclick="showFloorOptions(3)" onmouseover="highlightFloor(3)" onmouseout="resetHighlight()">Floor 3</button>
+    <button class="floorBtn" onclick="showFloorOptions(4)" onmouseover="highlightFloor(4)" onmouseout="resetHighlight()">Floor 4</button>
+    </div>
+    <div id="floorOptionsPanel">
+      <h4 id="floorLabel">Floor Options</h4>
+      <button>Option 1</button><br>
+      <button>Option 2</button><br>
+      <button>Option 3</button><br>
+      <button>Option 4</button><br>
+      <button onclick="hideFloorOptions()">Close</button>
     </div>
     <canvas id="threejsCanvas"></canvas>
     <h2 id="model-name" style="position: absolute; color: white; padding: 10px;"></h2>
