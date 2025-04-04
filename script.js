@@ -133,6 +133,22 @@ function resetHighlight() {
     });
 }
 
+function showFloorOptions(floorNumber) {
+    highlightFloor(floorNumber); // Highlight the floor box
+
+    const panel = document.getElementById("floorOptionsPanel");
+    const label = document.getElementById("floorLabel");
+
+    label.textContent = `Options for Floor ${floorNumber}`;
+    panel.style.display = "block";
+}
+
+function hideFloorOptions() {
+    const panel = document.getElementById("floorOptionsPanel");
+    panel.style.display = "none";
+    resetHighlight(); // Un-highlight boxes
+}
+
 window.highlightFloor = highlightFloor;
 window.resetHighlight = resetHighlight;
 
