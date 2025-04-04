@@ -47,3 +47,28 @@ body {
 #floorPanel::-webkit-scrollbar-track {
     background: #222;
 }
+
+/* Right-side floor options panel */
+#floorOptionsPanel {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 220px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#floorOptionsPanel h4 {
+  margin-top: 0;
+}
+
+#floorOptionsPanel button {
+  margin-bottom: 6px;
+  width: 100%;
+  padding: 6px 10px;
+  cursor: pointer;
+}
