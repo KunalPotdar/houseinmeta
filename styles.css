@@ -53,7 +53,7 @@ body {
   position: fixed;
   top: 50%;
   right: 20px;
-  width: 220px;
+  transform: translateY(-50%);
   background-color: #333;
   padding: 10px;
   display: flex;
