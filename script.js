@@ -138,7 +138,7 @@ window.showFloorOptions = function(floorNumber) {
   const panel = document.getElementById("floorOptionsPanel");
   const label = document.getElementById("floorLabel");
 
-  label.textContent = `Options for Floor ${floorNumber}`;
+  label.textContent = `Apartments on ${floorNumber}`;
   panel.style.display = "block";
 };
 
