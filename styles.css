@@ -51,6 +51,7 @@ body {
 /* Right-side floor options panel */
 #floorOptionsPanel {
   position: fixed;
+    display: none;
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
