@@ -89,6 +89,7 @@ loader.load(
 		    transparent: true,
 		    opacity: 0.3 // Default semi-transparent
 		});
+		child.visible = false;
 	    }});
 	    
         animate();
@@ -105,20 +106,31 @@ function animate() {
 
 // Highlight the selected floor when hovering over a button
 function highlightFloor(floorNumber) {
-	if (Object.keys(floorBoxes).length === 0) {
+if (Object.keys(floorBoxes).length === 0) {
         console.warn("Model not loaded yet!");
         return;
     }
-	
-   Object.values(floorBoxes).forEach((box) => box.material.color.set(0x00ff00)); // Reset all to green
+
+    // Hide all boxes
+    Object.values(floorBoxes).forEach((box) => {
+        box.visible = false;
+        box.material.color.set(0x00ff00);
+    });
+
+    // Show and highlight selected floor
     if (floorBoxes[floorNumber]) {
-        floorBoxes[floorNumber].material.color.set(0xff0000); // Change to red
+        const box = floorBoxes[floorNumber];
+        box.visible = true;
+        box.material.color.set(0xff0000); // Highlight red
     }
 }
 
 // Reset highlight when mouse leaves
 function resetHighlight() {
-    Object.values(floors).forEach((floor) => floor.box.material.color.set(0x00ff00)); // Reset all to green
+  Object.values(floorBoxes).forEach((box) => {
+        box.visible = false;
+        box.material.color.set(0x00ff00);
+    });
 }
 
 window.highlightFloor = highlightFloor;
