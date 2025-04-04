@@ -151,6 +151,8 @@ function hideFloorOptions() {
 
 window.highlightFloor = highlightFloor;
 window.resetHighlight = resetHighlight;
+window.showFloorOptions = showFloorOptions;
+window.hideFloorOptions = hideFloorOptions;
 
 // Responsive Canvas
 window.addEventListener('resize', () => {
