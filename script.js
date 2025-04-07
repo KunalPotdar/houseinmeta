@@ -40,7 +40,7 @@ controls.enablePan = true;
 controls.minDistance = 5;
 controls.maxDistance = 20;
 controls.minZoom = 0.5;   // Minimum zoom (farthest view)
-controls.maxZoom = 3.0;
+controls.maxZoom = 3.5;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 0.9;
 controls.autoRotate = false;
@@ -52,7 +52,7 @@ document.body.appendChild(renderer.domElement);
 		
 
 // Lights 
-const light = new THREE.AmbientLight(0xffffff, 1.2);
+const light = new THREE.AmbientLight(0xffffff, 1.5);
 scene.add(light);
 		
 const sunLight = new THREE.DirectionalLight(0xfff8e7, 1.5); // slightly warm sunlight
