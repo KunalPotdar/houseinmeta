@@ -51,8 +51,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 		
 
-// Lighting
-const light = new THREE.AmbientLight(0xffffff, 1);
+// Lights 
+const light = new THREE.AmbientLight(0xffffff, 1.2);
 scene.add(light);
 
 const dirLight = new THREE.DirectionalLight(0xffffff, 1); // Strong white light
@@ -62,8 +62,16 @@ dirLight.shadow.mapSize.width = 1024; // Shadow quality
 dirLight.shadow.mapSize.height = 1024;
 dirLight.shadow.camera.near = 0.5;
 dirLight.shadow.camera.far = 500;
-scene.add(dirLight);
+//scene.add(dirLight);
 		
+const sunLight = new THREE.DirectionalLight(0xfff8e7, 1.5); // slightly warm sunlight
+sunLight.position.set(50, 100, 50);
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.width = 2048;
+sunLight.shadow.mapSize.height = 2048;
+sunLight.shadow.camera.near = 0.5;
+sunLight.shadow.camera.far = 500;
+scene.add(sunLight);
 
 // Load Model
 const loader = new GLTFLoader();
