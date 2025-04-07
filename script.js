@@ -54,15 +54,6 @@ document.body.appendChild(renderer.domElement);
 // Lights 
 const light = new THREE.AmbientLight(0xffffff, 1.2);
 scene.add(light);
-
-const dirLight = new THREE.DirectionalLight(0xffffff, 1); // Strong white light
-dirLight.position.set(100, 200, 100); // Position in 3D space
-dirLight.castShadow = true;           // Enable shadows
-dirLight.shadow.mapSize.width = 1024; // Shadow quality
-dirLight.shadow.mapSize.height = 1024;
-dirLight.shadow.camera.near = 0.5;
-dirLight.shadow.camera.far = 500;
-//scene.add(dirLight);
 		
 const sunLight = new THREE.DirectionalLight(0xfff8e7, 1.5); // slightly warm sunlight
 sunLight.position.set(50, 100, 50);
