@@ -6,9 +6,6 @@ import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-//const rightPanel = document.querySelector('');
-
-
 renderer.setSize(window.innerWidth, window.innerHeight);
 //renderer.setSize(rightPanel.clientWidth, rightPanel.clientHeight);
 renderer.setClearColor(0x000000);
@@ -105,24 +102,10 @@ window.addEventListener('resize', () => {
  // renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-function updateCompass() {
-  // Get the direction the camera is facing
-  const vector = new THREE.Vector3();
-  camera.getWorldDirection(vector);
-
-  // Calculate the angle from the camera's direction
-  const angle = Math.atan2(vector.x, vector.z); // angle in radians
-
-  // Convert the angle to degrees and apply it as a rotation to the compass rose
-  const degrees = (angle * (180 / Math.PI)) + 180; // +180 to adjust from -180-180 to 0-360
-  document.getElementById('compass-rose').style.transform = `rotate(${degrees}deg)`;
-}
-
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
   renderer.render(scene, camera);
-  updateCompass(); 
-}
+ }
 
 
