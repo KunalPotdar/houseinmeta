@@ -81,46 +81,12 @@ const light4 = new THREE.PointLight(0xc4c4c4,1.0);
 light4.position.set(-500,300,500);
 scene.add(light4);
 
-//const loader2= new RGBELoader();
-//loader2.load('assets/hdr/straight_morning_4k.hdr', (texture) => {
-//  texture.mapping = THREE.EquirectangularReflectionMapping;
-
-//  const geometry = new THREE.SphereGeometry(100, 60, 40);
-//  const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
-//  const backgroundSphere = new THREE.Mesh(geometry, material);
-
-  //scene.add(backgroundSphere);
-
-  // Use the same texture for reflections (optional)
-  //scene.environment = texture; // For reflective materials like MeshStandardMaterial
-//});
-
-
 const loader = new GLTFLoader().setPath('client/project2/');
 loader.load('1.glb', (gltf) => {
   console.log('Apartment model');
   const mesh = gltf.scene;
-
-  let meshcount = 0;
-  mesh.traverse((child) => {
-    if (child.isMesh) {
-      child.castShadow = true;
-      child.receiveShadow = true;
-      meshcount++;
-    }
-  });
-
-   console.log(meshcount);
-  //mesh.position.set(0, 1000, 1000);
-  mesh.position.set(0,0,0);
- 
-  mesh.scale.set(1.0,1.0,1.0);
-  mesh.rotation.x += 0.01;
-
   scene.add(mesh);
-  
-
-
+  animate();
   document.getElementById('progress-container').style.display = 'none';
 }, (xhr) => {
   console.log(`loading ${xhr.loaded / xhr.total * 100}%`);
@@ -159,4 +125,4 @@ function animate() {
   updateCompass(); 
 }
 
-animate();
+
