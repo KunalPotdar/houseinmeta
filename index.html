@@ -27,14 +27,20 @@
     </div>
     <div id="floorOptionsPanel">
       <h4 id="floorLabel" style="color: white; font-size: 18px;">View Apartments</h4>
-      <button class="floorBtn">Apartment 1</button><br>
-      <button class="floorBtn">Apartment 2</button><br>
-      <button class="floorBtn">Apartment 3</button><br>
-      <button class="floorBtn">Apartment 4</button><br>
+      <button class="floorBtn" onclick="openApartmentPage('A1')>Apartment 1</button><br>
+      <button class="floorBtn" onclick="openApartmentPage('A2')>Apartment 2</button><br>
+      <button class="floorBtn" onclick="openApartmentPage('A3') >Apartment 3</button><br>
+      <button class="floorBtn" onclick="openApartmentPage('A4')>Apartment 4</button><br>
       <button class="floorBtn" onclick="hideFloorOptions()">Close</button>
     </div>
     <canvas id="threejsCanvas"></canvas>
     <h2 id="model-name" style="position: absolute; color: white; padding: 10px;"></h2>
     <script type="module" src="script.js"></script>
+    <script>
+      function openApartmentPage(apartmentId) {
+        // Pass the ID via URL
+        window.location.href = `apartment_view.html?id=${apartmentId}`;
+  }
+</script>
 </body>
 </html>
