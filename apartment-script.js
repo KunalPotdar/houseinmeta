@@ -96,8 +96,8 @@ scene.add(light4);
 //});
 
 
-const loader = new GLTFLoader().setPath('assets/customer02/');
-loader.load('A202.glb', (gltf) => {
+const loader = new GLTFLoader().setPath('client/project2/');
+loader.load('1.glb', (gltf) => {
   console.log('Apartment model');
   const mesh = gltf.scene;
 
