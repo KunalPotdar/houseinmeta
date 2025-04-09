@@ -78,7 +78,7 @@ const light4 = new THREE.PointLight(0xc4c4c4,1.0);
 light4.position.set(-500,300,500);
 scene.add(light4);
 
-const loader = new GLTFLoader().setPath('client/project2/apts/');
+const loader = new GLTFLoader().setPath('client/project2/apts');
 loader.load('1.glb', (gltf) => {
   console.log('Apartment model');
   const mesh = gltf.scene;
@@ -91,16 +91,6 @@ loader.load('1.glb', (gltf) => {
   console.error(error);
 });
 
-window.addEventListener('resize', () => {
-     const width = rightPanel.clientWidth;
-    const height = rightPanel.clientHeight;
-
-    renderer.setSize(width, height);
- // camera.aspect = window.innerWidth / window.innerHeight;
-    camera.aspect = width / height;
-  camera.updateProjectionMatrix();
- // renderer.setSize(window.innerWidth, window.innerHeight);
-});
 
 function animate() {
   requestAnimationFrame(animate);
