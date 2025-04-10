@@ -27,27 +27,40 @@
     </div>
     <div id="floorOptionsPanel">
       <h4 id="floorLabel" style="color: white; font-size: 18px;">View Apartments</h4>
-      <button class="floorBtn" onclick="openApartmentPage('A1')">Apartment 1</button><br>
-      <button class="floorBtn" onclick="openApartmentPage('A2')">Apartment 2</button><br>
-      <button class="floorBtn" onclick="openApartmentPage('A3')">Apartment 3</button><br>
-      <button class="floorBtn" onclick="openApartmentPage('A4')">Apartment 4</button><br>
+      <button class="floorBtn" onclick="showApartmentPopup('A-102', '2 BHK', '1200 sqft')">Apartment 1</button><br>
+      <button class="floorBtn" onclick="showApartmentPopup('A-202', '4 BHK', '1600 sqft')">Apartment 2</button><br>
+      <button class="floorBtn" onclick="showApartmentPopup('A-302', '2 BHK', '1200 sqft')">Apartment 3</button><br>
+      <button class="floorBtn" onclick="showApartmentPopup('A-402', '4 BHK', '1650 sqft')">Apartment 4</button><br>
       <button class="floorBtn" onclick="hideFloorOptions()">Close</button>
       <!-- Popup (Hidden by Default) -->
       <div id="apartment-popup" class="popup">
           <span class="close" onclick="closePopup()">&times;</span>
           <h3 id="apartment-id"></h3>
           <p id="apartment-info"></p>
-      <button onclick="open2DView()">2D View</button>
+      <button onclick="openApartmentPage('A')">3D View</button>
        </div>
     </div>
     <canvas id="threejsCanvas"></canvas>
     <h2 id="model-name" style="position: absolute; color: white; padding: 10px;"></h2>
     <script type="module" src="script.js"></script>
     <script>
-      function openApartmentPage(apartmentId) {
-        // Pass the ID via URL
-        window.location.href = `apartment_view.html?id=${apartmentId}`;
-  }
-</script>
+            let selectedApartmentId = '';
+    
+          function showApartmentPopup(id, type, size) {
+            selectedApartmentId = id;
+            document.getElementById('apartment-id').textContent = `Apartment ${id}`;
+            document.getElementById('apartment-info').textContent = `${type}, ${size}`;
+            document.getElementById('apartment-popup').style.display = 'block';
+          }
+        
+          function closePopup() {
+            document.getElementById('apartment-popup').style.display = 'none';
+          }
+            
+          function openApartmentPage(apartmentId) {
+            // Pass the ID via URL
+            window.location.href = `apartment_view.html?id=${apartmentId}`;
+          }
+    </script>
 </body>
 </html>
