@@ -39,6 +39,7 @@
           <h3 id="apartment-id"></h3>
           <p id="apartment-info"></p>
       <button onclick="openApartmentPage('A')">3D View</button>
+      <button onclick="openApartment2DPage('A')">2D View</button>   
        </div>
     <canvas id="threejsCanvas"></canvas>
     <h2 id="model-name" style="position: absolute; color: white; padding: 10px;"></h2>
@@ -60,6 +61,10 @@
           function openApartmentPage(apartmentId) {
             // Pass the ID via URL
             window.location.href = `apartment_view.html?id=${apartmentId}`;
+          }
+
+          function openApartment2DPage(apartmentId) {
+             window.location.href = `2D_view.html?id=${apartmentId}`;
           }
     </script>
 </body>
