@@ -73,3 +73,44 @@ body {
   padding: 6px 10px;
   cursor: pointer;
 }
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  z-index: 1000;
+  width: 250px;
+}
+
+.popup h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.popup .close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.popup button {
+  background-color: #444;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #666;
+}
+
